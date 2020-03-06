@@ -3,7 +3,7 @@ const router = express.Router();
 const profileController = require('../controllers/profileController');
 
 router.post('/profile', profileController.updateprofile);
-router.get('/profile/:id', profileController.updateprofile);
+router.get('/profile/:id', profileController.getprofile);
 
 
 module.exports = router;
