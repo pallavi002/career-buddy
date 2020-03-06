@@ -64,7 +64,7 @@ module.exports.register = async function (req, res) {
                 });
                 console.log(name);
 				User.create(user)
-            .then(user => {
+                .then(user => {
                 // console.log(user);
                 let clientUserData = {
                     name: user.name,
