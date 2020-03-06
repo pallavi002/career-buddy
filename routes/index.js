@@ -6,6 +6,7 @@ const initRoutes = function(app) {
   console.log('Initializing Routes');
   
   app.use('/', staticRoutes);
+  app.use('/user', userRoutes);
 } 
 
 module.exports = initRoutes;
