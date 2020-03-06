@@ -1,22 +1,17 @@
 const Admin = require('../models/Career');
 
-module.exports.Career = function (req, res, next) {
+module.exports.career = async function (req, res, next) {
   try {
-    let admin = await Admin.findOneAndUpdate({ "userId": req.body.userId },
+    let admin = await Admin.findOneAndUpdate({ "careerPath.name": req.body.name },
       {
-        $push: {
+        $set: {
+          adminId: "5e621ff9b015792ff01cbf2c",
           careerPath: {
             name: req.body.name,
             salary: req.body.salary,
             job: req.body.job,
             prerequisite: req.body.prerequisite,
-            $push: {
-              path: {
-                pros: req.body.pros,
-                cons: req.body.cons,
-                courses: req.body.courses
-              }
-            }
+            path: req.body.path
           }
         }
       },

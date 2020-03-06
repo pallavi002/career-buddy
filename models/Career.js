@@ -6,7 +6,7 @@ const careerSchema = mongoose.Schema({
     ref: 'User',
     required: true
   },
-  careerPath = [
+  careerPath : 
     {
       name: {
         type: String,
@@ -37,6 +37,5 @@ const careerSchema = mongoose.Schema({
         }
       ]
     }
-  ]
 })
 module.exports = mongoose.model('Career', careerSchema);
