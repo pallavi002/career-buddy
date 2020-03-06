@@ -7,7 +7,7 @@ module.exports.updateprofile = async function (req, res) {
       marks: req.body.marks,
       goals: req.body.goals
     };
-    let profile = Profile.findOneAndUpdate({ 'userId': req.body.userId },
+    let profile = await Profile.findOneAndUpdate({ 'userId': req.body.userId },
       { $push: { educationDeatils } },
       { 'upsert': true, 'new': true, 'multi': true });
     res.json(profile);
