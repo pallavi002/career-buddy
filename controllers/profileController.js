@@ -1,6 +1,7 @@
 const Profile = require('../models/Profile');
 
 module.exports.updateprofile = async function (req, res) {
+  console.log(req.body.userId);
   try {
     educationDetails = {
       course: req.body.course,
