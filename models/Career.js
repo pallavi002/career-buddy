@@ -39,4 +39,4 @@ const careerSchema = mongoose.Schema({
     }
   ]
 })
-module.exports = mongoose.Model('Career', careerSchema);
+module.exports = mongoose.model('Career', careerSchema);
