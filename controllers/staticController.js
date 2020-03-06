@@ -50,7 +50,7 @@ module.exports.login = function(req, res){
   }
 }
 
-module.exports.register = function (req, res) {
+module.exports.register = async function (req, res) {
   if( req.body.name && req.body.email && req.body.contact) {
     try {
       let user = await User.findOne({ 'email': req.body.email });
