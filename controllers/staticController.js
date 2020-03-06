@@ -57,11 +57,12 @@ module.exports.register = async function (req, res) {
       if (!user) {
         user = new User({
 					email: req.body.email,
-					name: req.body.name,
-          contact: req.body.contact,
-          password: req.body.password,
+                    name: req.body.name,
+                    contact: req.body.contact,
+                    password: req.body.password,
 					role: req.body.role
-				});
+                });
+                console.log(name);
 				User.create(user)
             .then(user => {
                 // console.log(user);
