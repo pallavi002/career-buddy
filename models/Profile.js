@@ -7,8 +7,9 @@ const profileSchema = mongoose.Schema({
     required: true
   },
   status: {
-    type: Boolean,
+    type: String,
     // 0 for student, 1 for passout
+    enum: ['0', '1'],
     required: true
   },
   educationDetails: [
@@ -17,10 +18,11 @@ const profileSchema = mongoose.Schema({
         type: String
       },
       marks: {
-        type: Number
+        type: String
       },
       courseStatus: {
-        type: Boolean
+        type: String,
+        enum: ["0", "1"]
       }
     }
   ],

@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
     unique: true
   },
   contact: {
-    type: Number,
+    type: String,
     minlength: 10,
     maxlength: 10
   },
