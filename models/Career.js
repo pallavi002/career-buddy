@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// var mongoose_fuzzy_searching = require('mongoose-fuzzy-searching');
 
 const careerSchema = mongoose.Schema({
   adminId: {
@@ -38,4 +39,6 @@ const careerSchema = mongoose.Schema({
       ]
     }
 })
+
+careerSchema.index({ '$**': 'text'});
 module.exports = mongoose.model('Career', careerSchema);

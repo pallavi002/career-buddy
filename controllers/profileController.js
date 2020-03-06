@@ -6,8 +6,7 @@ module.exports.updateprofile = async function (req, res) {
     let educationDetails = req.body.educationDetails;
     let goals = req.body.goals;
     let profile = await Profile.findOneAndUpdate({ 'userId': req.body.userId },
-      {
-        $set: {
+      { $set: {
           educationDetails: educationDetails,
           goals: goals
         }
@@ -18,9 +17,9 @@ module.exports.updateprofile = async function (req, res) {
     console.log(err);
     res.json(err);
   }
-}
+} 
 
-module.exports.getprofile = async function (req, res) {
-  let profile = await Profile.findOne({ 'userId': req.params.id });
+module.exports.getprofile = async function(req, res) {
+  let profile = await Profile.findOne( {'userId': req.params.userId });
   res.json(profile);
 }
