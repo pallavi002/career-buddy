@@ -11,7 +11,7 @@ const profileSchema = mongoose.Schema({
     // 0 for student, 1 for passout
     required: true
   },
-  educationDeatils: [
+  educationDetails: [
     {
       course: {
         type: String
