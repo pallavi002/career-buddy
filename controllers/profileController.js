@@ -7,20 +7,8 @@ module.exports.updateprofile = async function (req, res) {
     let goals = req.body.goals;
     let profile = await Profile.findOneAndUpdate({ 'userId': req.body.userId },
       { $set: {
-          $push: {
-            educationDetails:{ 
-              $each: {
-                educationDetails
-              } 
-            } 
-          },
-          $push: {
-            goals: {
-              $each: {
-                goals
-              }
-            }
-          } 
+          educationDetails: educationDetails,
+          goals: goals
         }
       },
       { 'upsert': true, 'new': true, 'multi': true });
