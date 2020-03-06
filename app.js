@@ -14,6 +14,7 @@ let initRoutes = require('./routes/index');
 
 var app = express();
 initDatabase();
+app.use(cors());
 initRoutes(app);
 
 // view engine setup
@@ -25,7 +26,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
 
 
 // catch 404 and forward to error handler
