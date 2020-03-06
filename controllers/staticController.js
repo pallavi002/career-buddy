@@ -51,6 +51,7 @@ module.exports.login = function(req, res){
 }
 
 module.exports.register = async function (req, res) {
+    console.log(req.body);
   if( req.body.name && req.body.email && req.body.contact) {
     try {
       let user = await User.findOne({ 'email': req.body.email });
@@ -62,7 +63,7 @@ module.exports.register = async function (req, res) {
                     password: req.body.password,
 					role: req.body.role
                 });
-                console.log(name);
+                
 				User.create(user)
                 .then(user => {
                 // console.log(user);
