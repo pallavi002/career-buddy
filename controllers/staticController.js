@@ -4,13 +4,13 @@ const User = require('../models/User');
 module.exports.login = function(req, res){
   try {
       // console.log(req.body);
-      User.findOne({username: req.body.username}, (userError, user)=>{
+      User.findOne({email: req.body.email}, (userError, user)=>{
           if(user){
               user.comparePassword(req.body.password, function(pswdError, isMatch){
                   if(isMatch){
                       let userDetails = {
                           _id: user._id,
-                          username: user.username,
+                          email: user.email,
                           name: user.name
                       }
                       jwt.sign(userDetails, process.env.JWT_SECRET_KEY, {expiresIn: '1h'}, function(tokenError, token){
@@ -21,7 +21,7 @@ module.exports.login = function(req, res){
                           }else{
                               res.json({
                                   status: 202,
-                                  message: "Loged in successfully.",
+                                  message: "Logged in successfully.",
                                   token,
                                   user: userDetails
                               })
