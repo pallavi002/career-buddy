@@ -3,11 +3,7 @@ const Profile = require('../models/Profile');
 module.exports.updateprofile = async function (req, res) {
   console.log(req.body);
   try {
-    educationDetails = {
-      course: req.body.course,
-      marks: req.body.marks,
-      goals: req.body.goals
-    };
+    educationDetails = req.body.educationDetails;
     let profile = await Profile.findOneAndUpdate({ 'userId': req.body.userId },
       { $push:  {educationDetails:{ $each: {educationDetails} } } },
       { 'upsert': true, 'new': true, 'multi': true });
