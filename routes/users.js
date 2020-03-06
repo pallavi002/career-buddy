@@ -8,6 +8,8 @@ const careerController = require('../controllers/careerController');
 router.post('/profile', profileController.updateprofile);
 router.get('/profile/:id', profileController.getprofile);
 router.post('/admin', adminController.career);
-router.get('/searchcareer', careerController.searchCareer);
+router.post('/searchcareer', careerController.searchCareer);
+router.get('/allcareer', careerController.allCareer);
+router.post('/goalscareer', careerController.goalBasedCareer);
 
 module.exports = router;
