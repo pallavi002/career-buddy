@@ -18,3 +18,8 @@ module.exports.updateprofile = async function (req, res) {
     res.json(err);
   }
 } 
+
+module.exports.getprofile = async function(req, res) {
+  let profile = await Profile.findOne( {'userId': req.params.userId });
+  res.json(profile);
+}
