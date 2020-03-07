@@ -20,6 +20,6 @@ module.exports.updateprofile = async function (req, res) {
 } 
 
 module.exports.getprofile = async function(req, res) {
-  let profile = await Profile.findOne( {'userId': req.params.userId });
+  let profile = await Profile.findOne( {'userId': req.params.id });
   res.json(profile);
 }
